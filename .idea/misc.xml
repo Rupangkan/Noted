@@ -5,8 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_chemical.xml" value="0.17685185185185184" />
         <entry key="app/src/main/res/drawable/ic_computer.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.175" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/custom_grid_layout.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_start.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.175" />
       </map>
     </option>
