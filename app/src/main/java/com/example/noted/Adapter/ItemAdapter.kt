@@ -6,14 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noted.R
+import com.example.noted.StartFragment
+import com.example.noted.StartFragmentDirections
 import com.example.noted.model.Courses
 
 class ItemAdapter(private val ctx: Context, private val dataset: List<Courses>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-    class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+    class ItemViewHolder(val view: View): RecyclerView.ViewHolder(view){
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
+        val cardView: ConstraintLayout = view.findViewById(R.id.card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -27,6 +32,14 @@ class ItemAdapter(private val ctx: Context, private val dataset: List<Courses>):
         val item = dataset[position]
         holder.textView.text = ctx.resources.getString(item.stringResourseId)
         holder.imageView.setImageResource(item.imageResourceId)
+        holder.cardView.setOnClickListener  {
+            // Create an action from WordList to DetailList
+            // using the required arguments
+//            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())4
+            val action = StartFragmentDirections.actionStartFragmentToSemesterFragment()
+            // Navigate using that action
+            holder.view.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount() = dataset.size

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Noted</string>
+
+    <!--    Courses Names   -->
+    <string name="course">Course</string>
+    <string name="select">Select your</string>
     <string name="computer">Computer</string>
     <string name="chemical">Chemical</string>
     <string name="mechanical">Mechanical</string>
@@ -9,4 +13,14 @@
     <string name="industrial">Industrial</string>
     <string name="instrumental">Instrumental</string>
 
+    <!--    Semester Names    -->
+    <string name="semester">Semester</string>
+    <string name="first">1st Semester</string>
+    <string name="second">2nd Semester</string>
+    <string name="third">3rd Semester</string>
+    <string name="fourth">4th Semester</string>
+    <string name="fifth">5th Semester</string>
+    <string name="sixth">6th Semester</string>
+    <string name="seventh">7th Semester</string>
+    <string name="eigth">8th Semester</string>
 </resources>

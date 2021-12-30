@@ -1,7 +1,6 @@
 package com.example.noted.model
 
-
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class Courses(@StringRes val stringResourseId: Int, @DrawableRes val imageResourceId: Int)
+data class Semester(@StringRes val stringResourseId: Int, @DrawableRes val imageResourceId: Int)

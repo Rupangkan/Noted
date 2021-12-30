@@ -1,13 +1,13 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".StartFragment" >
+    tools:context=".SemesterFragment" >
 
     <data>
         <variable
-            name="startFragment"
-            type="com.example.noted.StartFragment" />
+            name="semesterFragment"
+            type="com.example.noted.SemesterFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/course" />
 
-
         <TextView
             android:id="@+id/course"
             android:layout_width="match_parent"
@@ -38,7 +37,7 @@
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="@string/course"
+            android:text="@string/semester"
             android:textColor="@color/purple_200"
             android:textSize="48sp"
             android:textStyle="bold"
@@ -46,7 +45,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/select" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/dataList"
@@ -56,6 +54,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/select"
-            app:layout_constraintTop_toBottomOf="@id/course" />
+            app:layout_constraintTop_toBottomOf="@id/course"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

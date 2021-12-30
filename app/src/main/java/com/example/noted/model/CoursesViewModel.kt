@@ -24,6 +24,4 @@ class CoursesViewModel : ViewModel() {
         _courseSelected.value = ""
     }
 
-
-
 }
