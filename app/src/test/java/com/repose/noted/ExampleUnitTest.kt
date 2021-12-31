@@ -1,4 +1,4 @@
-package com.example.noted
+package com.repose.noted
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.noted.Adapter
+package com.repose.noted.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.noted.R
-import com.example.noted.model.Semester
+import com.repose.noted.R
+import com.repose.noted.model.Semester
 
 class SemesterAdapter(private val ctx: Context, private val dataset: List<Semester>): RecyclerView.Adapter<SemesterAdapter.SemesterViewHolder>() {
     class SemesterViewHolder(private val view: View): RecyclerView.ViewHolder(view){

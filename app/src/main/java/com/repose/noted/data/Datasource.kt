@@ -1,8 +1,8 @@
-package com.example.noted.data
+package com.repose.noted.data
 
-import com.example.noted.R
-import com.example.noted.model.Courses
-import com.example.noted.model.Semester
+import com.repose.noted.R
+import com.repose.noted.model.Courses
+import com.repose.noted.model.Semester
 
 class Datasource() {
 

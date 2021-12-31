@@ -1,4 +1,4 @@
-package com.example.noted.model
+package com.repose.noted.model
 
 
 import androidx.annotation.DrawableRes

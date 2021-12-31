@@ -1,4 +1,4 @@
-package com.example.noted
+package com.repose.noted
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

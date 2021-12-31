@@ -7,7 +7,7 @@
     <data>
         <variable
             name="semesterFragment"
-            type="com.example.noted.SemesterFragment" />
+            type="com.repose.noted.SemesterFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

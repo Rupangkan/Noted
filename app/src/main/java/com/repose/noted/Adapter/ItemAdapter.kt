@@ -1,4 +1,4 @@
-package com.example.noted.Adapter
+package com.repose.noted.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,10 +9,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.noted.R
-import com.example.noted.StartFragment
-import com.example.noted.StartFragmentDirections
-import com.example.noted.model.Courses
+import com.repose.noted.R
+import com.repose.noted.StartFragmentDirections
+import com.repose.noted.model.Courses
 
 class ItemAdapter(private val ctx: Context, private val dataset: List<Courses>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(val view: View): RecyclerView.ViewHolder(view){

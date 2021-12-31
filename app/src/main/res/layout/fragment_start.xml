@@ -7,7 +7,7 @@
     <data>
         <variable
             name="startFragment"
-            type="com.example.noted.StartFragment" />
+            type="com.repose.noted.StartFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

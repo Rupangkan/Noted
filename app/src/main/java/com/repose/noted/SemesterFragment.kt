@@ -1,19 +1,15 @@
-package com.example.noted
+package com.repose.noted
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.noted.Adapter.ItemAdapter
-import com.example.noted.Adapter.SemesterAdapter
-import com.example.noted.data.Datasource
-import com.example.noted.databinding.FragmentSemesterBinding
-import com.example.noted.databinding.FragmentStartBinding
-import com.example.noted.model.CoursesViewModel
+import com.repose.noted.Adapter.SemesterAdapter
+import com.repose.noted.data.Datasource
+import com.repose.noted.databinding.FragmentSemesterBinding
 
 class SemesterFragment: Fragment() {
     private var binding: FragmentSemesterBinding? = null

@@ -1,4 +1,4 @@
-package com.example.noted
+package com.repose.noted
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.noted.Adapter.ItemAdapter
-import com.example.noted.data.Datasource
-import com.example.noted.databinding.FragmentStartBinding
-import com.example.noted.model.CoursesViewModel
+import com.repose.noted.Adapter.ItemAdapter
+import com.repose.noted.data.Datasource
+import com.repose.noted.databinding.FragmentStartBinding
+import com.repose.noted.model.CoursesViewModel
 
 class StartFragment: Fragment() {
     // Binding object instance corresponding to the fragment_start.xml layout

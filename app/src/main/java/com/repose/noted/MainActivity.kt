@@ -1,13 +1,9 @@
-package com.example.noted
+package com.repose.noted
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.noted.Adapter.ItemAdapter
-import com.example.noted.data.Datasource
 
 class MainActivity : AppCompatActivity() {
 
