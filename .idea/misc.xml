@@ -16,8 +16,9 @@
         <entry key="app/src/main/res/drawable/ic_thirdsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_grid_layout.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_pdfcontainer.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/layout/fragment_semester.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_start.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_start.xml" value="0.14" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.175" />
       </map>
     </option>

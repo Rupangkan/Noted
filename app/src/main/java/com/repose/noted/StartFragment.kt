@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.Adapter.ItemAdapter
 import com.repose.noted.data.Datasource
 import com.repose.noted.databinding.FragmentStartBinding
-import com.repose.noted.model.CoursesViewModel
+import com.repose.noted.model.AppViewModel
 
 class StartFragment: Fragment() {
     // Binding object instance corresponding to the fragment_start.xml layout
@@ -22,8 +22,8 @@ class StartFragment: Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
-    // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
-    private val sharedViewModel: CoursesViewModel by activityViewModels()
+    private val sharedViewModel: AppViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +41,7 @@ class StartFragment: Fragment() {
         val myDataSet = Datasource().loadCourses()
         recyclerView = binding?.dataList!!
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        recyclerView.adapter = context?.let { ItemAdapter(it, myDataSet) }
+        recyclerView.adapter = context?.let { ItemAdapter(sharedViewModel ,it, myDataSet) }
         recyclerView.setHasFixedSize(true)
 
     }

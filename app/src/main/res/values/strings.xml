@@ -23,4 +23,6 @@
     <string name="sixth">6th Semester</string>
     <string name="seventh">7th Semester</string>
     <string name="eigth">8th Semester</string>
+
+    <string name="paper">Paper</string>
 </resources>

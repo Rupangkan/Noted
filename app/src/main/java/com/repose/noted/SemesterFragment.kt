@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.Adapter.SemesterAdapter
 import com.repose.noted.data.Datasource
 import com.repose.noted.databinding.FragmentSemesterBinding
+import com.repose.noted.model.AppViewModel
 
 class SemesterFragment: Fragment() {
     private var binding: FragmentSemesterBinding? = null
@@ -18,6 +20,7 @@ class SemesterFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
 
     // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
+    private val sharedViewModel: AppViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +38,7 @@ class SemesterFragment: Fragment() {
         val myDataSet = Datasource().loadSemester()
         recyclerView = binding?.dataList!!
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        recyclerView.adapter = context?.let { SemesterAdapter(it, myDataSet) }
+        recyclerView.adapter = context?.let { SemesterAdapter( sharedViewModel, it, myDataSet) }
         recyclerView.setHasFixedSize(true)
 
     }

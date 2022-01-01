@@ -20,12 +20,6 @@ class MainActivity : AppCompatActivity() {
         // Set up the action bar for use with the NavController
         setupActionBarWithNavController(navController)
 
-//        val myDataSet = Datasource().loadCourses()
-//        val dataList = findViewById<RecyclerView>(R.id.dataList)
-//        val gridLayoutManager: GridLayoutManager = GridLayoutManager(this,2, GridLayoutManager.VERTICAL, false)
-//        dataList.layoutManager = gridLayoutManager
-//        dataList.adapter = ItemAdapter(this, myDataSet)
-//        dataList.setHasFixedSize(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
