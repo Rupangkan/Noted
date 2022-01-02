@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.R
+import com.repose.noted.SemesterFragmentDirections
+import com.repose.noted.StartFragmentDirections
 import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.Semester
 
@@ -17,7 +20,7 @@ class SemesterAdapter(private val model: AppViewModel, private val ctx: Context,
 
     private val myModel = model
 
-    class SemesterViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+    class SemesterViewHolder(val view: View): RecyclerView.ViewHolder(view){
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
         val cardView: ConstraintLayout = view.findViewById(R.id.card)
@@ -35,11 +38,13 @@ class SemesterAdapter(private val model: AppViewModel, private val ctx: Context,
         holder.textView.text = ctx.resources.getString(item.stringResourseId)
         holder.imageView.setImageResource(item.imageResourceId)
         holder.cardView.setOnClickListener {
+            val action = SemesterFragmentDirections.actionSemesterFragmentToPdfContainerFragment()
             with(model){
                 setSemester(holder.textView.text.toString())
             }
             Log.d("course", model.coursesSelected.value.toString())
             Log.d("semester", model.semesterSelected.value.toString())
+            holder.view.findNavController().navigate(action)
         }
     }
 

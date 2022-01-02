@@ -19,5 +19,15 @@
         android:id="@+id/semesterFragment"
         android:name="com.repose.noted.SemesterFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_semester" />
+        tools:layout="@layout/fragment_semester" >
+        <action
+            android:id="@+id/action_semesterFragment_to_pdfContainerFragment"
+            app:destination="@id/pdfContainerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfContainerFragment"
+        android:name="com.repose.noted.PdfContainerFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_pdfcontainer" />
 </navigation>

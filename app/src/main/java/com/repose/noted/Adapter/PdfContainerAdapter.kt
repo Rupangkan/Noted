@@ -38,7 +38,7 @@ class PdfContainerAdapter(private val model: AppViewModel, private val ctx: Cont
         val item = dataset[position]
 //        holder.textView.text = ctx.resources.getString(item.stringResourseId)
 //        holder.imageView.setImageResource(item.imageResourceId)
-        holder.textView.text = item.stringResourseId.toString()
+        holder.textView.text = item.stringResourseId
     }
 
     override fun getItemCount(): Int = dataset.size

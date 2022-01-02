@@ -40,7 +40,6 @@ class SemesterFragment: Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = context?.let { SemesterAdapter( sharedViewModel, it, myDataSet) }
         recyclerView.setHasFixedSize(true)
-
     }
 
     override fun onDestroyView() {
