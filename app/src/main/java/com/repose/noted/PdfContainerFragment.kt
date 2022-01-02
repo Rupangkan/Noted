@@ -16,6 +16,7 @@ import com.repose.noted.databinding.FragmentPdfcontainerBinding
 import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.PdfContainer
 
+private const val name = "question-papers"
 
 class PdfContainerFragment: Fragment() {
 
@@ -69,6 +70,7 @@ class PdfContainerFragment: Fragment() {
         "Electronics" to "electronics",
     )
 
+
 //    private val courses = Datasource().loadCourses()
     private val sharedViewModel: AppViewModel by activityViewModels()
 
@@ -103,7 +105,7 @@ class PdfContainerFragment: Fragment() {
         var tempSem = ""
         if(userSemChoice.equals(getString(R.string.first)) || userSemChoice.equals(getString(R.string.second))) {
             tempSem = userSemChoice
-            dbref = FirebaseStorage.getInstance().reference.child("$tempSem")
+            dbref = FirebaseStorage.getInstance().reference.child("$tempSem/$name")
         }else {
             tempCourse = COURSES[userCourseChoice].toString()
             Log.d("tempCourse: ", tempCourse)
@@ -111,7 +113,7 @@ class PdfContainerFragment: Fragment() {
             tempSem = SEMESTER[userSemChoice].toString()
             Log.d("tempSem: ", tempSem)
 
-            dbref = FirebaseStorage.getInstance().reference.child("$tempCourse/$tempSem")
+            dbref = FirebaseStorage.getInstance().reference.child("$tempCourse/$tempSem/$name")
 
         }
 
