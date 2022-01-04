@@ -25,4 +25,6 @@
     <string name="eigth">8th Semester</string>
 
     <string name="paper">Paper</string>
+
+    <string name="pdfActivityLabel">%1$s </string>
 </resources>

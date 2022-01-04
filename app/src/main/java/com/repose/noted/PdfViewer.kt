@@ -10,10 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.android.material.appbar.AppBarLayout
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.repose.noted.databinding.ActivityPdfviewerBinding
 import com.repose.noted.model.AppViewModel
+import android.content.res.Resources
+import java.text.Format
 
 
 private const val name = "question-papers"
@@ -59,7 +62,16 @@ class PdfViewer: AppCompatActivity() {
         Log.d("Semester", semester.toString())
         Log.d("PDF", pdfName.toString())
 
+        val temp: CharSequence = pdfName.toString()
+
+//        getString(R.string.pdfActivityLabel, pdfName.toString())
+//        val text: String = String.format(getString(R.string.pdfActivityLabel), pdfName);
+//        val tempId = String.format(getString(R.string.pdfActivityLabel), pdfName)
+        setTitle(temp)
+
         loadPDFDetails(course, semester, pdfName)
+        val text = resources.getText((R.string.pdfActivityLabel), pdfName.toString())
+        Log.d("resource", text.toString())
 
     }
 
@@ -105,12 +117,6 @@ class PdfViewer: AppCompatActivity() {
                 progressBar.visibility = View.GONE
             }
 
-//        val webView = findViewById<WebView>(R.id.webView)
-//        webView.webViewClient = WebViewClient()
-//        webView.settings.setSupportZoom(true)
-//        webView.settings.javaScriptEnabled = true
-////        val url = FileUtils.getPdfUrl()
-//        webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$url")
     }
 
     override fun onSupportNavigateUp(): Boolean {
