@@ -1,16 +1,22 @@
 package com.repose.noted.Adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.ktx.Firebase
+import com.repose.noted.PdfViewer
 import com.repose.noted.R
 import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.PdfContainer
@@ -39,6 +45,21 @@ class PdfContainerAdapter(private val model: AppViewModel, private val ctx: Cont
 //        holder.textView.text = ctx.resources.getString(item.stringResourseId)
 //        holder.imageView.setImageResource(item.imageResourceId)
         holder.textView.text = item.stringResourseId
+        holder.imageView.setOnClickListener {
+            with(model){
+                setPdfName(holder.textView.text.toString())
+            }
+            Log.d("pdfName:", holder.textView.text.toString())
+            val intent = Intent(
+                ctx,
+                PdfViewer::class.java
+            )
+            intent.putExtra("Course", "${model.coursesSelected.value.toString()}")
+            intent.putExtra("Semester", "${model.semesterSelected.value.toString()}")
+            intent.putExtra("PDF", "${model.pdfName.value.toString()}")
+            ctx.startActivity(intent)
+
+        }
     }
 
     override fun getItemCount(): Int = dataset.size

@@ -23,6 +23,7 @@ class ItemAdapter(private val model: AppViewModel, private val ctx: Context, pri
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
         val cardView: ConstraintLayout = view.findViewById(R.id.card)
+
     }
 
 
@@ -38,9 +39,6 @@ class ItemAdapter(private val model: AppViewModel, private val ctx: Context, pri
         holder.textView.text = ctx.resources.getString(item.stringResourseId)
         holder.imageView.setImageResource(item.imageResourceId)
         holder.cardView.setOnClickListener  {
-            // Create an action from WordList to DetailList
-            // using the required arguments
-//            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())4
             val action = StartFragmentDirections.actionStartFragmentToSemesterFragment()
             with(model) {
                 setCourse(holder.textView.text.toString())

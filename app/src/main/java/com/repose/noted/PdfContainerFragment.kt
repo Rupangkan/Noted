@@ -18,6 +18,28 @@ import com.repose.noted.model.PdfContainer
 
 private const val name = "question-papers"
 
+private val SEMESTER = mapOf(
+    "1st Semester" to "first-sem",
+    "2nd Semester" to "second-sem",
+    "3rd Semester" to "third-sem",
+    "4th Semester" to "fourth-sem",
+    "5th Semester" to "fifth-sem",
+    "6th Semester" to "sixth-sem",
+    "7th Semester" to "seventh-sem",
+    "8th Semester" to "eight-sem",
+)
+
+private val COURSES = mapOf(
+    "Civil" to "civil",
+    "Computer" to "computer",
+    "Instrumental" to "instrumental",
+    "Industrial" to "industrial",
+    "Chemical" to "chemical",
+    "Mechanical" to "mechanical",
+    "Electrical" to "electrical",
+    "Electronics" to "electronics",
+)
+
 class PdfContainerFragment: Fragment() {
 
     private var binding: FragmentPdfcontainerBinding? = null
@@ -38,16 +60,7 @@ class PdfContainerFragment: Fragment() {
 //        getString(R.string.eigth) to "eight-sem",
 //    )
 
-    private val SEMESTER = mapOf(
-        "1st Semester" to "first-sem",
-        "2nd Semester" to "second-sem",
-        "3rd Semester" to "third-sem",
-        "4th Semester" to "fourth-sem",
-        "5th Semester" to "fifth-sem",
-        "6th Semester" to "sixth-sem",
-        "7th Semester" to "seventh-sem",
-        "8th Semester" to "eight-sem",
-    )
+
 //    private val COURSES = mapOf(
 //        getString(R.string.civil) to "civil",
 //        getString(R.string.computer) to "computer",
@@ -58,17 +71,6 @@ class PdfContainerFragment: Fragment() {
 //        getString(R.string.electrical) to "electrical",
 //        getString(R.string.electronics) to "electronics",
 //    )
-
-    private val COURSES = mapOf(
-        "Civil" to "civil",
-        "Computer" to "computer",
-        "Instrumental" to "instrumental",
-        "Industrial" to "industrial",
-        "Chemical" to "chemical",
-        "Mechanical" to "mechanical",
-        "Electrical" to "electrical",
-        "Electronics" to "electronics",
-    )
 
 
 //    private val courses = Datasource().loadCourses()

@@ -13,6 +13,9 @@ class AppViewModel : ViewModel() {
     private val _semesterSelected = MutableLiveData<String>("")
     val semesterSelected: LiveData<String> = _semesterSelected
 
+    private val _pdfName = MutableLiveData<String>("")
+    val pdfName: LiveData<String> = _pdfName
+
     init {
         // Set initial values for the course
         resetOrder()
@@ -26,9 +29,14 @@ class AppViewModel : ViewModel() {
         _semesterSelected.value = semester
     }
 
+    fun setPdfName(name: String) {
+        _pdfName.value = name
+    }
+
     private fun resetOrder() {
         _courseSelected.value = ""
         _semesterSelected.value = ""
+        _pdfName.value = ""
     }
 
 }

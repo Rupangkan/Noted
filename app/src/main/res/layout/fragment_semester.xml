@@ -10,9 +10,7 @@
             type="com.repose.noted.SemesterFragment" />
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,20 +43,24 @@
                 android:textColor="@color/purple_200"
                 android:textSize="48sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/dataList"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/select" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/dataList"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="729dp"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/select"
-                app:layout_constraintTop_toBottomOf="@id/course"/>
+                app:layout_constraintTop_toBottomOf="@+id/course"
+                tools:layout_editor_absoluteX="0dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dataList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/select"
+                    app:layout_constraintTop_toBottomOf="@id/course"/>
+            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </layout>

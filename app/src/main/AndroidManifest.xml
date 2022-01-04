@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Noted">
+
+        <activity android:name=".PdfViewer"
+            android:exported="true"
+            />
         <activity
             android:name="com.repose.noted.MainActivity"
             android:exported="true">
