@@ -35,7 +35,7 @@ class PdfContainerAdapter(private val model: AppViewModel, private val ctx: Cont
         viewType: Int
     ): PdfContainerAdapter.PdfViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.custom_grid_layout, parent, false)
+            .inflate(R.layout.notes_card_layout, parent, false)
 
         return PdfContainerAdapter.PdfViewHolder(adapterLayout)
     }

@@ -62,20 +62,16 @@ class PdfViewer: AppCompatActivity() {
         Log.d("Semester", semester.toString())
         Log.d("PDF", pdfName.toString())
 
-        val temp: CharSequence = pdfName.toString()
-
-//        getString(R.string.pdfActivityLabel, pdfName.toString())
-//        val text: String = String.format(getString(R.string.pdfActivityLabel), pdfName);
-//        val tempId = String.format(getString(R.string.pdfActivityLabel), pdfName)
-        setTitle(temp)
+        val label: CharSequence = pdfName.toString()
+        setTitle(label)
 
         loadPDFDetails(course, semester, pdfName)
-        val text = resources.getText((R.string.pdfActivityLabel), pdfName.toString())
-        Log.d("resource", text.toString())
 
     }
 
     private fun loadPDFDetails(course: String?, semester: String?, pdfName: String?) {
+
+
 //        val ref = FirebaseStorage.getInstance().reference.child("$course/$semester/$name/$pdfName")
         val course = COURSES[course]
         val semester = SEMESTER[semester]
@@ -83,13 +79,17 @@ class PdfViewer: AppCompatActivity() {
         var pdfRef = storageRef.child("$course/$semester/$name/$pdfName")
         val url = storageRef.child("$course/$semester/$name/$pdfName").toString()
 
+
+//        val downloadUrl = pdfRef.downloadUrl.toString()
+//        Log.d("downloadUrl", downloadUrl)
+
         val pdfView = findViewById<PDFView>(R.id.pdfView)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
         Log.d("url", url)
-//        binding.progressBar.visibility = View.VISIBLE
-        val ref = FirebaseStorage.getInstance().getReferenceFromUrl("gs://noted-app-b0c56.appspot.com/$course/$semester/$name/$pdfName")
-        pdfRef.getBytes(50000000)
+
+
+        pdfRef.getBytes(50000000) // MAX SIZE
             .addOnSuccessListener { bytes ->
                 Log.d("Success", bytes.toString())
                 pdfView.fromBytes(bytes)

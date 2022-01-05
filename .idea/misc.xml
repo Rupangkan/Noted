@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/ic_chemical.xml" value="0.17685185185185184" />
         <entry key="app/src/main/res/drawable/ic_computer.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_eightsemester.xml" value="0.190625" />
+        <entry key="app/src/main/res/drawable/ic_electrical.xml" value="0.36302083333333335" />
         <entry key="app/src/main/res/drawable/ic_fifthsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/drawable/ic_firstsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/drawable/ic_fourtsemester.xml" value="0.190625" />
@@ -14,6 +15,8 @@
         <entry key="app/src/main/res/drawable/ic_secondsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/drawable/ic_seventhsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/drawable/ic_sixthsemester.xml" value="0.190625" />
+        <entry key="app/src/main/res/drawable/ic_star_empty.xml" value="0.36302083333333335" />
+        <entry key="app/src/main/res/drawable/ic_star_fill.xml" value="0.36302083333333335" />
         <entry key="app/src/main/res/drawable/ic_thirdsemester.xml" value="0.190625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pdfviewer.xml" value="0.2265625" />
@@ -22,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_semester.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.14" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.175" />
+        <entry key="app/src/main/res/layout/notes_card_layout.xml" value="0.28125" />
       </map>
     </option>
   </component>

@@ -49,31 +49,7 @@ class PdfContainerFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var pdfArrayList: ArrayList<PdfContainer>
 
-//    private val SEMESTER = mapOf(
-//        getString(R.string.first) to "first-sem",
-//        getString(R.string.second) to "second-sem",
-//        getString(R.string.third) to "third-sem",
-//        getString(R.string.fourth) to "fourth-sem",
-//        getString(R.string.fifth) to "fifth-sem",
-//        getString(R.string.sixth) to "sixth-sem",
-//        getString(R.string.seventh) to "seventh-sem",
-//        getString(R.string.eigth) to "eight-sem",
-//    )
 
-
-//    private val COURSES = mapOf(
-//        getString(R.string.civil) to "civil",
-//        getString(R.string.computer) to "computer",
-//        getString(R.string.instrumental) to "instrumental",
-//        getString(R.string.industrial) to "industrial",
-//        getString(R.string.chemical) to "chemical",
-//        getString(R.string.mechanical) to "mechanical",
-//        getString(R.string.electrical) to "electrical",
-//        getString(R.string.electronics) to "electronics",
-//    )
-
-
-//    private val courses = Datasource().loadCourses()
     private val sharedViewModel: AppViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -129,11 +105,9 @@ class PdfContainerFragment: Fragment() {
                 }
             }
             .addOnFailureListener {
-                // Uh-oh, an error occurred!
                 Log.e("Error:", it.toString())
             }
         Log.d("pdfArrayList:", pdfArrayList.toString())
-//        recyclerView.adapter = context?.let { PdfContainerAdapter( sharedViewModel, it, pdfArrayList ) }
 
 
     }
