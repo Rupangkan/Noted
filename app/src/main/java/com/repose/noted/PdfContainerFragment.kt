@@ -7,14 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.repose.noted.Adapter.PdfContainerAdapter
+import com.repose.noted.data.StarredApplication
 import com.repose.noted.databinding.FragmentPdfcontainerBinding
 import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.PdfContainer
+import com.repose.noted.model.RoomViewModel
+import com.repose.noted.model.RoomViewModelFactory
 
 private const val name = "question-papers"
 
@@ -48,9 +52,21 @@ class PdfContainerFragment: Fragment() {
     private lateinit var dbref: StorageReference
     private lateinit var recyclerView: RecyclerView
     private lateinit var pdfArrayList: ArrayList<PdfContainer>
-
+//    private lateinit var pdfPath: ArrayList<String>
 
     private val sharedViewModel: AppViewModel by activityViewModels()
+
+    private val viewModel: RoomViewModel by activityViewModels {
+        RoomViewModelFactory(
+            (activity?.application as StarredApplication).database.starredDao()
+        )
+    }
+
+//    private val viewModel: InventoryViewModel by activityViewModels {
+//        InventoryViewModelFactory(
+//            (activity?.application as StarredApplication).database.itemDao()
+//        )
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,7 +86,13 @@ class PdfContainerFragment: Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.setHasFixedSize(true)
 
+        binding!!.floatingActionButton.setOnClickListener {
+            val action = PdfContainerFragmentDirections.actionPdfContainerFragmentToStarredFragment()
+            this.findNavController().navigate(action)
+        }
+
         pdfArrayList = arrayListOf<PdfContainer>()
+//        pdfPath = arrayListOf<String>()
 
         getPdfData()
 
@@ -81,17 +103,19 @@ class PdfContainerFragment: Fragment() {
         val userCourseChoice = sharedViewModel.coursesSelected.value!!
         var tempCourse = ""
         var tempSem = ""
+        var pathString = ""
         if(userSemChoice.equals(getString(R.string.first)) || userSemChoice.equals(getString(R.string.second))) {
             tempSem = userSemChoice
-            dbref = FirebaseStorage.getInstance().reference.child("$tempSem/$name")
+            pathString = "$tempSem/$name"
+            dbref = FirebaseStorage.getInstance().reference.child(pathString)
         }else {
             tempCourse = COURSES[userCourseChoice].toString()
             Log.d("tempCourse: ", tempCourse)
             Log.d("userSemChoice: ", userSemChoice)
             tempSem = SEMESTER[userSemChoice].toString()
             Log.d("tempSem: ", tempSem)
-
-            dbref = FirebaseStorage.getInstance().reference.child("$tempCourse/$tempSem/$name")
+            pathString = "$tempCourse/$tempSem/$name"
+            dbref = FirebaseStorage.getInstance().reference.child(pathString)
 
         }
 
@@ -100,7 +124,8 @@ class PdfContainerFragment: Fragment() {
                 it.items.forEach {
                     var pdf = PdfContainer(it.name)
                     pdfArrayList.add(pdf)
-                    recyclerView.adapter = context?.let { PdfContainerAdapter( sharedViewModel, it, pdfArrayList ) }
+//                    pdfPath.add(pathString)
+                    recyclerView.adapter = context?.let { PdfContainerAdapter( viewModel, sharedViewModel, it, pdfArrayList, pathString ) }
                     Log.d("name", it.name)
                 }
             }
@@ -108,8 +133,17 @@ class PdfContainerFragment: Fragment() {
                 Log.e("Error:", it.toString())
             }
         Log.d("pdfArrayList:", pdfArrayList.toString())
+        val tempPathInPdfContainerFragment = sharedViewModel.path.value.toString()
+        val tempPdfName = sharedViewModel.pdfName.value.toString()
 
-
+        Log.d("tempPath", tempPathInPdfContainerFragment)
+        Log.d("tempPdfName", tempPdfName)
+//        if(sharedViewModel.path.toString()!=null){
+//            viewModel.addNewItem(
+//                sharedViewModel.path.toString(),
+//                sharedViewModel.pdfName.toString()
+//            )
+//        }
     }
 
     override fun onDestroyView() {

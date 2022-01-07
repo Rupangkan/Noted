@@ -1,0 +1,5 @@
+// Add star functionality to Room database
+// Add download functionality of pdf
+// Add star activity
+// Add animations on everything (they are overriden right now)
+

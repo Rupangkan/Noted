@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.Adapter.ItemAdapter
@@ -43,6 +44,11 @@ class StartFragment: Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = context?.let { ItemAdapter(sharedViewModel ,it, myDataSet) }
         recyclerView.setHasFixedSize(true)
+
+        binding!!.floatingActionButton.setOnClickListener {
+            val action = StartFragmentDirections.actionStartFragmentToStarredFragment()
+            this.findNavController().navigate(action)
+        }
 
     }
 
