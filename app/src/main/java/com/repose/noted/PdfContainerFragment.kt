@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -114,6 +115,8 @@ class PdfContainerFragment: Fragment() {
 
         }
 
+        val fm : FragmentActivity = requireActivity()
+
         dbref.listAll()
             .addOnSuccessListener { it ->
                 it.items.forEach {
@@ -122,6 +125,7 @@ class PdfContainerFragment: Fragment() {
 //                    pdfPath.add(pathString)
                     recyclerView.adapter = context?.let {
                         PdfContainerAdapter(
+                            fm,
                             viewModel,
                             sharedViewModel,
                             it,

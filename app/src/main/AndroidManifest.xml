@@ -8,7 +8,7 @@
     <application
         android:name="com.repose.noted.data.StarredApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_pdf"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
