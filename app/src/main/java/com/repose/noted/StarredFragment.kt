@@ -1,6 +1,8 @@
 package com.repose.noted
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.Adapter.SemesterAdapter
+import com.repose.noted.Adapter.StarredAdapter
 import com.repose.noted.data.Datasource
 import com.repose.noted.data.StarredApplication
 import com.repose.noted.data.StarredRoomDatabase
@@ -28,6 +31,12 @@ class StarredFragment : Fragment() {
 //        )
 //    }
     private val sharedViewModel: AppViewModel by activityViewModels()
+
+    private val viewModel: RoomViewModel by activityViewModels {
+        RoomViewModelFactory(
+            (activity?.application as StarredApplication).database.starredDao()
+        )
+    }
 
 
     private lateinit var recyclerView: RecyclerView
@@ -47,12 +56,21 @@ class StarredFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.starredFragment = this
-//
-//        val myDataSet = Datasource().loadSemester()
-//        recyclerView = binding?.dataList!!
-//        recyclerView.layoutManager = GridLayoutManager(context, 2)
-//        recyclerView.adapter = context?.let { SemesterAdapter( sharedViewModel, it, myDataSet) }
-//        recyclerView.setHasFixedSize(true)
+
+        val myDataSet = Datasource().loadSemester()
+        recyclerView = binding?.dataList!!
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        val adapter = context?.let { StarredAdapter( sharedViewModel, it ) }
+
+        recyclerView.adapter = adapter
+
+        viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
+            items.let {
+                Log.d("ListFromFragment", items.toString())
+                adapter?.submitList(it)
+            }
+        }
+        recyclerView.setHasFixedSize(true)
 
         binding!!.floatingActionButton.setOnClickListener {
             val action = StarredFragmentDirections.actionStarredFragmentToStartFragment()

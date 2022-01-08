@@ -16,6 +16,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.repose.noted.databinding.ActivityPdfviewerBinding
 import com.repose.noted.model.AppViewModel
 import android.content.res.Resources
+import com.google.firebase.storage.StorageReference
 import java.text.Format
 
 
@@ -54,32 +55,43 @@ class PdfViewer: AppCompatActivity() {
 
 
         var bundle :Bundle ?= intent.extras
-        val course = bundle!!.getString("Course")
-        val semester = bundle!!.getString("Semester")
-        val pdfName = bundle!!.getString("PDF")
+        val course = bundle?.getString("Course")
+        val semester = bundle?.getString("Semester")
+        val pdfName = bundle?.getString("PDF")
+        val path = bundle?.getString("Path")
 
         Log.d("Course", course.toString())
         Log.d("Semester", semester.toString())
         Log.d("PDF", pdfName.toString())
+        Log.d("Path", path.toString())
+
 
         val label: CharSequence = pdfName.toString()
         setTitle(label)
 
-        loadPDFDetails(course, semester, pdfName)
+        loadPDFDetails(course, semester, pdfName, path)
 
     }
 
-    private fun loadPDFDetails(course: String?, semester: String?, pdfName: String?) {
+    private fun loadPDFDetails(course: String?, semester: String?, pdfName: String?, path: String?) {
 
 
 //        val ref = FirebaseStorage.getInstance().reference.child("$course/$semester/$name/$pdfName")
-        val course = COURSES[course]
-        val semester = SEMESTER[semester]
-        val storageRef =  FirebaseStorage.getInstance().reference
-        var pdfRef = storageRef.child("$course/$semester/$name/$pdfName")
-        val url = storageRef.child("$course/$semester/$name/$pdfName").toString()
+        val storageRef = FirebaseStorage.getInstance().reference
+        var pdfRef: StorageReference
+        var url = ""
+        if(path == null) {
+            val course = COURSES[course]
+            val semester = SEMESTER[semester]
+            pdfRef = storageRef.child("$course/$semester/$name/$pdfName")
+            url = pdfRef.toString()
+//            url = storageRef.child("$course/$semester/$name/$pdfName").toString()
+        }else {
+            pdfRef = storageRef.child("$path/$pdfName")
+            url = pdfRef.toString()
+        }
 
-
+        Log.d("pdfRef", url)
 //        val downloadUrl = pdfRef.downloadUrl.toString()
 //        Log.d("downloadUrl", downloadUrl)
 
@@ -97,6 +109,7 @@ class PdfViewer: AppCompatActivity() {
 //                    .onPageChange{ page, pageCount ->
 //
 //                    }
+                    .enableDoubletap(true)
                     .onError {
                         Log.d("Error", "Error")
                         Toast.makeText(this, "Error loading pdf", Toast.LENGTH_SHORT)

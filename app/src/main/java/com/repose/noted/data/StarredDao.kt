@@ -10,9 +10,9 @@ interface StarredDao {
 
     @Delete
     fun delete(item: Starred)
-//
-//    @Query("SELECT * from starred WHERE id = :id")
-//    fun getItem(id: Int): Flow<Starred>
+
+    @Query("SELECT * from starred WHERE dbname = :name")
+    fun getItem(name: String): Flow<Starred>
 
 //    @Query("SELECT path from starred where id = :id")
 //    fun getPaths(id: Int): Flow<Starred>

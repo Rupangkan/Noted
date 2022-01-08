@@ -1,5 +1,6 @@
 package com.repose.noted.model
 
+import android.content.ClipData
 import androidx.lifecycle.*
 import com.repose.noted.data.Starred
 import com.repose.noted.data.StarredDao
@@ -18,6 +19,10 @@ class RoomViewModel(private val starredDao: StarredDao) : ViewModel() {
         viewModelScope.launch {
             starredDao.insert(item)
         }
+    }
+
+    fun retrieveItem(name: String): LiveData<Starred> {
+        return starredDao.getItem(name).asLiveData()
     }
 
     fun isEntryValid(path: String, pdfName: String): Boolean {

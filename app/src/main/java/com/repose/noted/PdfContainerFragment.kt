@@ -62,11 +62,6 @@ class PdfContainerFragment: Fragment() {
         )
     }
 
-//    private val viewModel: InventoryViewModel by activityViewModels {
-//        InventoryViewModelFactory(
-//            (activity?.application as StarredApplication).database.itemDao()
-//        )
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -104,11 +99,11 @@ class PdfContainerFragment: Fragment() {
         var tempCourse = ""
         var tempSem = ""
         var pathString = ""
-        if(userSemChoice.equals(getString(R.string.first)) || userSemChoice.equals(getString(R.string.second))) {
+        if (userSemChoice.equals(getString(R.string.first)) || userSemChoice.equals(getString(R.string.second))) {
             tempSem = userSemChoice
             pathString = "$tempSem/$name"
             dbref = FirebaseStorage.getInstance().reference.child(pathString)
-        }else {
+        } else {
             tempCourse = COURSES[userCourseChoice].toString()
             Log.d("tempCourse: ", tempCourse)
             Log.d("userSemChoice: ", userSemChoice)
@@ -125,7 +120,15 @@ class PdfContainerFragment: Fragment() {
                     var pdf = PdfContainer(it.name)
                     pdfArrayList.add(pdf)
 //                    pdfPath.add(pathString)
-                    recyclerView.adapter = context?.let { PdfContainerAdapter( viewModel, sharedViewModel, it, pdfArrayList, pathString ) }
+                    recyclerView.adapter = context?.let {
+                        PdfContainerAdapter(
+                            viewModel,
+                            sharedViewModel,
+                            it,
+                            pdfArrayList,
+                            pathString
+                        )
+                    }
                     Log.d("name", it.name)
                 }
             }
@@ -133,17 +136,7 @@ class PdfContainerFragment: Fragment() {
                 Log.e("Error:", it.toString())
             }
         Log.d("pdfArrayList:", pdfArrayList.toString())
-        val tempPathInPdfContainerFragment = sharedViewModel.path.value.toString()
-        val tempPdfName = sharedViewModel.pdfName.value.toString()
 
-        Log.d("tempPath", tempPathInPdfContainerFragment)
-        Log.d("tempPdfName", tempPdfName)
-//        if(sharedViewModel.path.toString()!=null){
-//            viewModel.addNewItem(
-//                sharedViewModel.path.toString(),
-//                sharedViewModel.pdfName.toString()
-//            )
-//        }
     }
 
     override fun onDestroyView() {

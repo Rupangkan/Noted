@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.PdfViewer
 import com.repose.noted.R
@@ -44,6 +45,9 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 //        holder.textView.text = ctx.resources.getString(item.stringResourseId)
 //        holder.imageView.setImageResource(item.imageResourceId)
         holder.textView.text = item.stringResourseId
+        val pdfName = holder.textView.text.toString()
+
+
         holder.imageView.setOnClickListener {
             with(model){
                 setPdfName(holder.textView.text.toString())
@@ -60,6 +64,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 
         }
         holder.star.setOnClickListener{
+//            retriveItem(pdfName)
 
             with(model){
                 setPath(paths)
@@ -91,6 +96,13 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
             )
         }
     }
+
+//    private fun retriveItem(name: String) {
+//        val retrieveItem = roomViewModel.retrieveItem(name)
+//        val item = retrieveItem.toString()
+//        Log.d("itemfromdb", item)
+//    }
+
 
     override fun getItemCount(): Int = dataset.size
 //
