@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
 import androidx.recyclerview.widget.RecyclerView
-import com.repose.noted.MainActivity
 import com.repose.noted.PdfViewer
 import com.repose.noted.R
 import com.repose.noted.data.Starred
@@ -28,7 +25,6 @@ class PdfContainerAdapter(private val activity: FragmentActivity, private val ro
         var pdfInStarred: Boolean = false
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
-        val cardView: ConstraintLayout = view.findViewById(R.id.card)
         val star: ImageView = view.findViewById(R.id.star)
 
     }
@@ -36,18 +32,16 @@ class PdfContainerAdapter(private val activity: FragmentActivity, private val ro
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PdfContainerAdapter.PdfViewHolder {
+    ): PdfViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.notes_card_layout, parent, false)
 
-        return PdfContainerAdapter.PdfViewHolder(adapterLayout)
+        return PdfViewHolder(adapterLayout)
     }
 
-    override fun onBindViewHolder(holder: PdfContainerAdapter.PdfViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PdfViewHolder, position: Int) {
         val item = dataset[position]
 
-//        holder.textView.text = ctx.resources.getString(item.stringResourseId)
-//        holder.imageView.setImageResource(item.imageResourceId)
         holder.textView.text = item.stringResourseId
         val pdfName = holder.textView.text.toString()
 
@@ -102,9 +96,9 @@ class PdfContainerAdapter(private val activity: FragmentActivity, private val ro
         }
     }
 
-    private fun retrieveItem(name: String, holder: PdfViewHolder ): Boolean {
+    private fun retrieveItem(name: String, holder: PdfViewHolder): Boolean {
         var item: Starred? = null
-        roomViewModel.retrieveItem(name).observe(activity, androidx.lifecycle.Observer { selectedItem ->
+        roomViewModel.retrieveItem(name).observe(activity, Observer { selectedItem ->
             item = selectedItem
             if(item!=null){
                 holder.pdfInStarred = true
@@ -112,20 +106,10 @@ class PdfContainerAdapter(private val activity: FragmentActivity, private val ro
             Log.d("itemfromdb", item.toString())
         })
 
-
-
         return holder.pdfInStarred
 //        Log.d("itemfromdb", "${item}" )
     }
 
-    private fun returnTrue() {
-
-    }
-
-
     override fun getItemCount(): Int = dataset.size
-//
-//    interface IUInterface{
-//        fun addToDb(path: String, name: String)
-//    }
+
 }

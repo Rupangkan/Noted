@@ -12,7 +12,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.repose.noted.R
 import com.repose.noted.SemesterFragmentDirections
-import com.repose.noted.StartFragmentDirections
 import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.Semester
 

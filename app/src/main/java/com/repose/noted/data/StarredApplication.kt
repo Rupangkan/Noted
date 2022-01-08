@@ -4,6 +4,4 @@ import android.app.Application
 
 class StarredApplication : Application() {
     val database: StarredRoomDatabase by lazy { StarredRoomDatabase.getDatabase(this) }
-//    val database: ItemRoomDatabase by lazy { ItemRoomDatabase.getDatabase(this) }
-
 }
