@@ -2,7 +2,7 @@
 
 # Noted
 
-<img width="230" alt="Courses" src="https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg"> <img width="230" alt="Semester" src="https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg"><img width="230" alt="PDF" src="https://user-images.githubusercontent.com/64887274/148688088-0d47c110-8780-4303-ab81-856d49740534.jpg"><img width="230" alt="Starred" src="https://user-images.githubusercontent.com/64887274/148688096-16e7d2b0-3e51-40b3-9860-1bb4e0c10dae.jpg">
+<img width="250" alt="Courses" src="https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg"> <img width="250" alt="Semester" src="https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg"><img width="250" alt="PDF" src="https://user-images.githubusercontent.com/64887274/148688088-0d47c110-8780-4303-ab81-856d49740534.jpg"><img width="250" alt="Starred" src="https://user-images.githubusercontent.com/64887274/148688096-16e7d2b0-3e51-40b3-9860-1bb4e0c10dae.jpg">
 <!-- 
 ![X1](https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg)
 ![X2](https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg)
