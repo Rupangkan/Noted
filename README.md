@@ -2,10 +2,7 @@
 
 # Noted
 
-<img width="200" alt="Courses" src="https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg">
-<img width="200" alt="Semester" src="https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg">
-<img width="200" alt="PDF" src="https://user-images.githubusercontent.com/64887274/148688088-0d47c110-8780-4303-ab81-856d49740534.jpg">
-<img width="200" alt="Starred" src="https://user-images.githubusercontent.com/64887274/148688096-16e7d2b0-3e51-40b3-9860-1bb4e0c10dae.jpg">
+<img width="230" alt="Courses" src="https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg"> <img width="230" alt="Semester" src="https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg"><img width="230" alt="PDF" src="https://user-images.githubusercontent.com/64887274/148688088-0d47c110-8780-4303-ab81-856d49740534.jpg"><img width="230" alt="Starred" src="https://user-images.githubusercontent.com/64887274/148688096-16e7d2b0-3e51-40b3-9860-1bb4e0c10dae.jpg">
 <!-- 
 ![X1](https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg)
 ![X2](https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg)
@@ -38,6 +35,7 @@ Firebase Storage : The App also uses Firebase Storage free version for storing t
 ### Application Link & Future Scope : 
 
 The app is currently in the Beta testing phase with a limited no. of users from Assam Engineering College, You can access the app : [YOUR APP LINK HERE](either Github link or Google Play store link of published app or .apk file).
+
 The app currently holds question paper for some departments and some semesters (Computer 3rd Sem, Chemical 5th Sem, etc) and the papers are being uploaded regurlary. Noted currently uses integrated PDFViewer to view the contents of the PDF but in the future it will also provide download feature for all it's files free of cost.
 Noted provides question papers to the Engineering departments under ASTU but in the future it will also provide notes of subjects for better prepartions of the students.
 Once the app is fully tested and functional in Assam Engineering, the next step is to launch it so the college under ASTU can use it for their uncomming preparations. We aim that by next 6 months most of the students under ASTU will use Noted to prepare for their upcoming exams. 
