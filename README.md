@@ -4,14 +4,14 @@
 
 ### Problem Statement: 
 
-Over a great period, many issues have been faced by our students getting question papers to prepare for their exams. 
+Over a great period, many issues have been faced by our students getting question papers and notes to prepare for their exams. Some store near colleges have previous years question papers and notes but they are not free of cost.
 Technology plays a vital role in day-to-day life activities which in turn made great changes in many work fields and out of them Mobile Application is one of the major developments. Mobile Application can be used effectively for this job as they are widely used and are known for easy access.
 
 ### Proposed Solution : 
 
 This project proposes a “Question Papers Sharing System” to keep track of our College/University question papers and provides it to the students free of cost. Its features include integrated PDF Viewer for ease of viewing the papers and a Starring system which helps students to star their preferred files and keep them in the Starred section for ease of access. This application uses Firebase's Storage system to Store the papers in the Database. Currently the app works for the engineering studenst of ASTU university and the papers are being uploaded constanty. The project's scope is to not only share question paper for the specific departments but also upload notes section which is being made in progress and also upload resources for entrance exams for engineering students.
 
-<img width="559" alt="sampleimages" src="https://user-images.githubusercontent.com/18289261/142846646-a6858641-ad88-43aa-b8bb-b690fd7126f1.png">
+<!-- <img width="559" alt="sampleimages" src="https://user-images.githubusercontent.com/18289261/142846646-a6858641-ad88-43aa-b8bb-b690fd7126f1.png"> -->
     	  	
 ### Functionality & Concepts used : 
 
@@ -28,4 +28,5 @@ Firebase Storage : The App also uses Firebase Storage free version for storing t
 
 The app is currently in the Beta testing phase with a limited no. of users from Assam Engineering College, You can access the app : [YOUR APP LINK HERE](either Github link or Google Play store link of published app or .apk file).
 The app currently holds question paper for some departments and some semesters (Computer 3rd Sem, Chemical 5th Sem, etc) and the papers are being uploaded regurlary. Noted currently uses integrated PDFViewer to view the contents of the PDF but in the future it will also provide download feature for all it's files free of cost.
+Noted provides question papers to the Engineering departments under ASTU but in the future it will also provide notes of subjects for better prepartions of the students.
 Once the app is fully tested and functional in Assam Engineering, the next step is to launch it so the college under ASTU can use it for their uncomming preparations. We aim that by next 6 months most of the students under ASTU will use ###Noted### to prepare for their upcoming exams. 
