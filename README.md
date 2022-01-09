@@ -25,7 +25,7 @@ This project proposes a “Question Papers Sharing System” to keep track of ou
 
 - The App has a very simple and interactive interface which workes pretty well under both Dark Mode and Light Mode as shown in the App images. The App's simple interface allows the students select their desired Course and their desired Semester. The App allows users to starred their preferred files for ease of access. Following are few android concepts used to achieve the functionalities in app : 
 - Constraint Layout : Most of the activities in the app uses a flexible constraint layout, which is easy to handle for different screen sizes.
-- Simple & Easy Views Design : Use of familiar CardViews and Icons made it easier for students to select and and click on their desired Courses and Semesters. Apps also uses App Navigation to switch between different screens. 
+- Simple & Easy Views Design : Use of familiar CardViews and Icons made it easier for students to select and and click on their desired Courses and Semesters. Apps also uses App Navigation to switch between different screens. The also uses Material Components for CardViews and FloatingActionButton.
 - Fragments : Most of the App screens uses Fragments to travese from one Frament to another. The App uses an integrated PDFViewer to show the contents of the PDF which is done in a new Activity.
 - Animations: Traversing through the App wouldn't feel good without animations, so traversing through the Fragments contains sliding in and out animations.
 - RecyclerView : To present the list of Courses, Semesters and Papers, RecyclerView with GridViewLayout with two columns are used with CardViews to present different selections. The App also uses a FloatingActionButton on almost every Fragment for ease of access to the Starred section where students have saved their preferred files/question-papers
@@ -34,7 +34,7 @@ Firebase Storage : The App also uses Firebase Storage free version for storing t
 
 ### Application Link & Future Scope : 
 
-The app is currently in the Beta testing phase with a limited no. of users from Assam Engineering College, You can access the app : [YOUR APP LINK HERE](either Github link or Google Play store link of published app or .apk file).
+The app is currently in the Beta testing phase with a limited no. of users from Assam Engineering College, You can access the app : [Noted.apk](https://drive.google.com/file/d/170qVgNRj56hpG-59vfMs7DWU-TdQV3IV/view?usp=sharing).
 
 - The app currently holds question paper for some departments and some semesters (Computer 3rd Sem, Chemical 5th Sem, etc) and the papers are being uploaded regurlary. Noted currently uses integrated PDFViewer to view the contents of the PDF but in the future it will also provide download feature for all it's files free of cost.
 - Noted provides question papers to the Engineering departments under ASTU but in the future it will also provide notes of subjects for better prepartions of the students.
