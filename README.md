@@ -15,7 +15,7 @@ This project proposes a “Question Papers Sharing System” to keep track of ou
     	  	
 ### Functionality & Concepts used : 
 
-- The App has a very simple and interactive interface which helps the students select their desired Course and their desired Semester. The App allows users to starred their preferred files for ease of access. Following are few android concepts used to achieve the functionalities in app : 
+- The App has a very simple and interactive interface which workes pretty well under both Dark Mode and Light Mode as shown in the App images. The App's simple interface allows the students select their desired Course and their desired Semester. The App allows users to starred their preferred files for ease of access. Following are few android concepts used to achieve the functionalities in app : 
 - Constraint Layout : Most of the activities in the app uses a flexible constraint layout, which is easy to handle for different screen sizes.
 - Simple & Easy Views Design : Use of familiar CardViews and Icons made it easier for students to select and and click on their desired Courses and Semesters. Apps also uses App Navigation to switch between different screens. 
 - Fragments : Most of the App screens uses Fragments to travese from one Frament to another. The App uses an integrated PDFViewer to show the contents of the PDF which is done in a new Activity.
