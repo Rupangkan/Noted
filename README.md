@@ -2,6 +2,12 @@
 
 # Noted
 
+![X1](https://user-images.githubusercontent.com/64887274/148688047-62386163-7cac-4fc3-970d-60853056bfae.jpg)
+![X2](https://user-images.githubusercontent.com/64887274/148688077-67065389-5dd7-4d33-bec0-2bec08e4c5ce.jpg)
+![X3](https://user-images.githubusercontent.com/64887274/148688088-0d47c110-8780-4303-ab81-856d49740534.jpg)
+![X4](https://user-images.githubusercontent.com/64887274/148688096-16e7d2b0-3e51-40b3-9860-1bb4e0c10dae.jpg)
+
+
 ### Problem Statement: 
 
 Over a great period, many issues have been faced by our students getting question papers and notes to prepare for their exams. Some store near colleges have previous years question papers and notes but they are not free of cost.
