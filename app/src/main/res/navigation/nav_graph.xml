@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_startFragment_to_semesterFragment"
             app:destination="@id/semesterFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_startFragment_to_starredFragment"
             app:destination="@id/starredFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -27,10 +35,18 @@
         <action
             android:id="@+id/action_semesterFragment_to_pdfContainerFragment"
             app:destination="@id/pdfContainerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_semesterFragment_to_starredFragment"
             app:destination="@id/starredFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -41,6 +57,10 @@
         <action
             android:id="@+id/action_pdfContainerFragment_to_starredFragment"
             app:destination="@id/starredFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -51,6 +71,10 @@
         <action
             android:id="@+id/action_starredFragment_to_startFragment"
             app:destination="@id/startFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

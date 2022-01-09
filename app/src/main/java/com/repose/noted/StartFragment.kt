@@ -32,6 +32,7 @@ class StartFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding = FragmentStartBinding.inflate(inflater, container, false)
+
         binding = fragmentBinding
         return fragmentBinding.root
     }
