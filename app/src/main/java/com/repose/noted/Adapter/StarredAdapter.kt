@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.StorageReference
 import com.repose.noted.PdfViewer
 import com.repose.noted.R
 import com.repose.noted.data.Starred
@@ -18,10 +19,13 @@ import com.repose.noted.model.AppViewModel
 
 class StarredAdapter(private val model: AppViewModel, private val ctx: Context): ListAdapter<Starred, StarredAdapter.StarredViewHolder>(DiffCallback) {
 
-        class StarredViewHolder(val view: View): RecyclerView.ViewHolder(view){
+    private lateinit var dbref: StorageReference
+
+    class StarredViewHolder(val view: View): RecyclerView.ViewHolder(view){
             val textView: TextView = view.findViewById(R.id.textView2)
             val imageView: ImageView = view.findViewById(R.id.imageView2)
             val star: ImageView = view.findViewById(R.id.star)
+            val download: ImageView = view.findViewById(R.id.download)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StarredAdapter.StarredViewHolder {
@@ -48,6 +52,10 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
 //            intent.putExtra("", "${model.semesterSelected.value.toString()}")
             intent.putExtra("PDF", "${current.dbname}")
             ctx.startActivity(intent)
+        }
+
+        holder.download.setOnClickListener{
+
         }
 
 

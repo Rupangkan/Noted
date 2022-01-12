@@ -25,11 +25,16 @@ import android.R.integer
 import android.app.DownloadManager
 import android.media.Image
 import android.net.Uri
+import android.os.Environment.DIRECTORY_DOWNLOADS
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 
 class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val model: AppViewModel, private val ctx: Context, private val dataset: List<PdfContainer>, private val paths: String): RecyclerView.Adapter<PdfContainerAdapter.PdfViewHolder>() {
+
+    private lateinit var dbref: StorageReference
 
     class PdfViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         var pdfInStarred: Boolean = false
@@ -100,8 +105,18 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         }
 
         holder.download.setOnClickListener{
+            dbref = FirebaseStorage.getInstance().reference.child("$paths/$pdfName")
+
             try{
-//                downloadFile(holder.card.context, pdfName, ".pdf", "Downloads", )
+                dbref.downloadUrl.addOnSuccessListener {
+                    Log.d("URI", it.toString())
+                    downloadFile(holder.card.context, pdfName, ".pdf", DIRECTORY_DOWNLOADS, it.toString())
+                }
+                    .addOnFailureListener{
+                        Log.d("Failure", "Inside onFailureListener")
+                        it.printStackTrace()
+                    }
+
             }catch (e: Exception){
                 e.printStackTrace()
             }
