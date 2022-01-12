@@ -2,18 +2,22 @@ package com.repose.noted.Adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Environment.DIRECTORY_DOWNLOADS
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.repose.noted.PdfViewer
 import com.repose.noted.R
+import com.repose.noted.Utils.Download
 import com.repose.noted.data.Starred
 import com.repose.noted.model.AppViewModel
 
@@ -55,6 +59,23 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
         }
 
         holder.download.setOnClickListener{
+            dbref = FirebaseStorage.getInstance().reference.child("${model.path.value.toString()}/${holder.textView.text}")
+            Log.d("Path", "${model.path.value.toString()}/${holder.textView.text}")
+            try {
+                dbref.downloadUrl.addOnSuccessListener {
+                    Download().downloadFile(ctx, holder.textView.text.toString(), DIRECTORY_DOWNLOADS, it.toString())
+                    Toast.makeText(ctx, "Downloading ${holder.textView.text}", Toast.LENGTH_SHORT).show()
+                }
+                    .addOnFailureListener{
+                        Toast.makeText(ctx, "Downloading ${holder.textView.text} failed", Toast.LENGTH_SHORT).show()
+                        it.printStackTrace()
+                    }
+            }catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(ctx, "Downloading ${holder.textView.text} failed", Toast.LENGTH_SHORT).show()
+
+
+            }
 
         }
 

@@ -30,6 +30,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.repose.noted.Utils.Download
 
 
 class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val model: AppViewModel, private val ctx: Context, private val dataset: List<PdfContainer>, private val paths: String): RecyclerView.Adapter<PdfContainerAdapter.PdfViewHolder>() {
@@ -110,15 +111,18 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
             try{
                 dbref.downloadUrl.addOnSuccessListener {
                     Log.d("URI", it.toString())
-                    downloadFile(holder.card.context, pdfName, ".pdf", DIRECTORY_DOWNLOADS, it.toString())
+                    Download().downloadFile(holder.card.context, pdfName, DIRECTORY_DOWNLOADS, it.toString())
+                    Toast.makeText(ctx, "Downloading ${holder.textView.text}", Toast.LENGTH_SHORT).show()
                 }
                     .addOnFailureListener{
                         Log.d("Failure", "Inside onFailureListener")
+                        Toast.makeText(ctx, "Downloading ${holder.textView.text} failed", Toast.LENGTH_SHORT).show()
                         it.printStackTrace()
                     }
 
             }catch (e: Exception){
                 e.printStackTrace()
+                Toast.makeText(ctx, "Downloading ${holder.textView.text} failed", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -159,24 +163,24 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         return true
     }
 
-    fun downloadFile(
-        context: Context,
-        fileName: String,
-        fileExtension: String,
-        destinationDirectory: String?,
-        url: String?
-    ): Long {
-        val downloadmanager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-        val uri: Uri = Uri.parse(url)
-        val request = DownloadManager.Request(uri)
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-        request.setDestinationInExternalFilesDir(
-            context,
-            destinationDirectory,
-            fileName + fileExtension
-        )
-        return downloadmanager.enqueue(request)
-    }
+//    fun downloadFile(
+//        context: Context,
+//        fileName: String,
+//        fileExtension: String,
+//        destinationDirectory: String?,
+//        url: String?
+//    ): Long {
+//        val downloadmanager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+//        val uri: Uri = Uri.parse(url)
+//        val request = DownloadManager.Request(uri)
+//        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+//        request.setDestinationInExternalFilesDir(
+//            context,
+//            destinationDirectory,
+//            fileName + fileExtension
+//        )
+//        return downloadmanager.enqueue(request)
+//    }
 
     override fun getItemCount(): Int = dataset.size
 
