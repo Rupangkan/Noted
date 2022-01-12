@@ -63,14 +63,14 @@ class StarredFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         val adapter = context?.let { StarredAdapter( sharedViewModel, it ) }
 
-        recyclerView.adapter = adapter
-
         viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
             items.let {
                 Log.d("ListFromFragment", items.toString())
                 adapter?.submitList(it)
+                recyclerView.adapter = adapter
             }
         }
+
         recyclerView.setHasFixedSize(true)
 
         binding!!.floatingActionButton.setOnClickListener {

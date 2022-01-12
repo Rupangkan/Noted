@@ -22,6 +22,9 @@ import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.PdfContainer
 import com.repose.noted.model.RoomViewModel
 import android.R.integer
+import android.app.DownloadManager
+import android.media.Image
+import android.net.Uri
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 
@@ -33,7 +36,8 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
         val star: ImageView = view.findViewById(R.id.star)
-        var card: CardView = view.findViewById(R.id.cardView)
+        val card: CardView = view.findViewById(R.id.cardView)
+        val download: ImageView = view.findViewById(R.id.download)
     }
 
     override fun onCreateViewHolder(
@@ -75,22 +79,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 
         }
 
-
         holder.star.setOnClickListener{
-//            addNewItem(paths, pdfName)
-//            Log.d("imageAlpha", holder.star.drawable)
-//            holder.star.setTag(R.drawable.ic_star_empty)
-//            var itemTag: Int = holder.star.getTag(R.drawable.ic_star_empty) as Int
-//            itemTag = if (itemTag == null) 0 else itemTag
-
-//            Log.d("itemTag", itemTag.toString())
-
-//            if(itemTag == R.drawable.ic_star_empty){
-//                holder.star.setImageResource(R.drawable.ic_star_fill)
-//            }else {
-//                holder.star.setImageResource(R.drawable.ic_star_empty) // 2131230884
-//            }
-
 
             Log.d("bool", bool.toString())
             with(model){
@@ -108,6 +97,14 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
             var pdfName = holder.textView.text.toString()
             Log.d("PathPdfContainerAdapter", paths)
             Log.d("pdfNamePdfAdapter", pdfName)
+        }
+
+        holder.download.setOnClickListener{
+            try{
+//                downloadFile(holder.card.context, pdfName, ".pdf", "Downloads", )
+            }catch (e: Exception){
+                e.printStackTrace()
+            }
         }
 
     }
@@ -145,6 +142,25 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         item = roomViewModel.retrieveItem(name)
         if(item==null) return false
         return true
+    }
+
+    fun downloadFile(
+        context: Context,
+        fileName: String,
+        fileExtension: String,
+        destinationDirectory: String?,
+        url: String?
+    ): Long {
+        val downloadmanager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val uri: Uri = Uri.parse(url)
+        val request = DownloadManager.Request(uri)
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        request.setDestinationInExternalFilesDir(
+            context,
+            destinationDirectory,
+            fileName + fileExtension
+        )
+        return downloadmanager.enqueue(request)
     }
 
     override fun getItemCount(): Int = dataset.size
