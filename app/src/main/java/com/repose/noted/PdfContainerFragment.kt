@@ -101,8 +101,10 @@ class PdfContainerFragment: Fragment() {
         var tempSem = ""
         var pathString = ""
         if (userSemChoice.equals(getString(R.string.first)) || userSemChoice.equals(getString(R.string.second))) {
-            tempSem = userSemChoice
+            tempSem = SEMESTER[userSemChoice].toString()
+            Log.d("tempSem: ", tempSem)
             pathString = "$tempSem/$name"
+            Log.d("pathString: ", pathString)
             dbref = FirebaseStorage.getInstance().reference.child(pathString)
         } else {
             tempCourse = COURSES[userCourseChoice].toString()
@@ -115,7 +117,7 @@ class PdfContainerFragment: Fragment() {
 
         }
 
-        val fm : FragmentActivity = requireActivity()
+//        val fm : FragmentActivity = requireActivity()
 
         dbref.listAll()
             .addOnSuccessListener { it ->
@@ -125,7 +127,6 @@ class PdfContainerFragment: Fragment() {
 //                    pdfPath.add(pathString)
                     recyclerView.adapter = context?.let {
                         PdfContainerAdapter(
-                            fm,
                             viewModel,
                             sharedViewModel,
                             it,

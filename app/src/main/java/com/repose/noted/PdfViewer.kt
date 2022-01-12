@@ -80,12 +80,16 @@ class PdfViewer: AppCompatActivity() {
         val storageRef = FirebaseStorage.getInstance().reference
         var pdfRef: StorageReference
         var url = ""
-        if(path == null) {
+        if(semester.equals("1st Semester") || semester.equals("2nd Semester")) {
+            val semester = SEMESTER[semester]
+            pdfRef = storageRef.child("$semester/$name/$pdfName/")
+            url = pdfRef.toString()
+//            url = storageRef.child("$course/$semester/$name/$pdfName").toString()
+        }else if(path == null) {
             val course = COURSES[course]
             val semester = SEMESTER[semester]
             pdfRef = storageRef.child("$course/$semester/$name/$pdfName")
             url = pdfRef.toString()
-//            url = storageRef.child("$course/$semester/$name/$pdfName").toString()
         }else {
             pdfRef = storageRef.child("$path/$pdfName")
             url = pdfRef.toString()

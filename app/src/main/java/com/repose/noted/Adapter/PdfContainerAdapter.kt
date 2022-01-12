@@ -27,7 +27,7 @@ import android.R.integer
 
 
 
-class PdfContainerAdapter(private val activity: FragmentActivity, private val roomViewModel: RoomViewModel, private val model: AppViewModel, private val ctx: Context, private val dataset: List<PdfContainer>, private val paths: String): RecyclerView.Adapter<PdfContainerAdapter.PdfViewHolder>() {
+class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val model: AppViewModel, private val ctx: Context, private val dataset: List<PdfContainer>, private val paths: String): RecyclerView.Adapter<PdfContainerAdapter.PdfViewHolder>() {
 
     class PdfViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         var pdfInStarred: Boolean = false
