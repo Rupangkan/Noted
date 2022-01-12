@@ -22,9 +22,8 @@ import com.repose.noted.model.AppViewModel
 import com.repose.noted.model.PdfContainer
 import com.repose.noted.model.RoomViewModel
 import android.R.integer
-
-
-
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 
 
 class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val model: AppViewModel, private val ctx: Context, private val dataset: List<PdfContainer>, private val paths: String): RecyclerView.Adapter<PdfContainerAdapter.PdfViewHolder>() {
@@ -34,6 +33,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
         val star: ImageView = view.findViewById(R.id.star)
+        var card: CardView = view.findViewById(R.id.cardView)
     }
 
     override fun onCreateViewHolder(
@@ -99,9 +99,11 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
             if(!bool) {
                 addNewItem(paths, pdfName)
                 holder.star.setImageResource(R.drawable.ic_star_fill)
+                Toast.makeText(holder.card.context, "$pdfName added to Starred", Toast.LENGTH_SHORT).show()
             } else {
                 deleteItem(pdfName)
                 holder.star.setImageResource(R.drawable.ic_star_empty)
+                Toast.makeText(holder.card.context, "$pdfName removed from Starred", Toast.LENGTH_SHORT).show()
             }
             var pdfName = holder.textView.text.toString()
             Log.d("PathPdfContainerAdapter", paths)

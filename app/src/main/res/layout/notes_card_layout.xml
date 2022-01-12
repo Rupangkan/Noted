@@ -9,6 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/cardView"
         android:clickable="true"
         android:focusable="true"
         android:layout_width="0dp"

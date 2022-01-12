@@ -104,6 +104,7 @@ class PdfViewer: AppCompatActivity() {
 
         Log.d("url", url)
 
+        Toast.makeText(this, "Opening $pdfName", Toast.LENGTH_SHORT).show()
 
         pdfRef.getBytes(50000000) // MAX SIZE
             .addOnSuccessListener { bytes ->
@@ -116,12 +117,12 @@ class PdfViewer: AppCompatActivity() {
                     .enableDoubletap(true)
                     .onError {
                         Log.d("Error", "Error")
-                        Toast.makeText(this, "Error loading pdf", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, "Error loading pdf", Toast.LENGTH_SHORT).show()
                     }
 //                    .enableAnnotationRendering(true)
                     .onPageError { page, t ->
                         Log.d("Error", "Page error")
-                        Toast.makeText(this, "Error loading page", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, "Error loading page", Toast.LENGTH_SHORT).show()
 
                     }
                     .load()
