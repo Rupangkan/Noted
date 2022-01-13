@@ -38,7 +38,6 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
     private lateinit var dbref: StorageReference
 
     class PdfViewHolder(private val view: View): RecyclerView.ViewHolder(view){
-        var pdfInStarred: Boolean = false
         val textView: TextView = view.findViewById(R.id.textView2)
         val imageView: ImageView = view.findViewById(R.id.imageView2)
         val star: ImageView = view.findViewById(R.id.star)
@@ -135,7 +134,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
         )
     }
 
-    private fun addNewItem( path: String, name: String) {
+    private fun addNewItem(path: String, name: String) {
         if(isEntryValid(path, name)) {
             roomViewModel.addNewItem(
                 path,

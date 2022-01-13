@@ -61,7 +61,7 @@ class StarredFragment : Fragment() {
         val myDataSet = Datasource().loadSemester()
         recyclerView = binding?.dataList!!
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        val adapter = context?.let { StarredAdapter( sharedViewModel, it ) }
+        val adapter = context?.let { StarredAdapter( sharedViewModel, viewModel,  it ) }
 
         viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
             items.let {

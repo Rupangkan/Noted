@@ -20,8 +20,9 @@ import com.repose.noted.R
 import com.repose.noted.Utils.Download
 import com.repose.noted.data.Starred
 import com.repose.noted.model.AppViewModel
+import com.repose.noted.model.RoomViewModel
 
-class StarredAdapter(private val model: AppViewModel, private val ctx: Context): ListAdapter<Starred, StarredAdapter.StarredViewHolder>(DiffCallback) {
+class StarredAdapter(private val model: AppViewModel, private val roomViewModel: RoomViewModel, private val ctx: Context): ListAdapter<Starred, StarredAdapter.StarredViewHolder>(DiffCallback) {
 
     private lateinit var dbref: StorageReference
 
@@ -46,6 +47,7 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
         holder.textView.text = current.dbname
 //        holder.imageView.setImageResource(item.imageResourceId)
         holder.star.visibility = View.GONE
+        holder.star.setImageResource(R.drawable.ic_star_fill)
         holder.imageView.setOnClickListener{
             Log.d("Click", "Clicked")
             val intent = Intent(
@@ -57,6 +59,17 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
             intent.putExtra("PDF", "${current.dbname}")
             ctx.startActivity(intent)
         }
+
+//        holder.star.setOnClickListener{
+//            try {
+//                Log.d("pdfName", holder.textView.text.toString())
+//                Log.d("path", model.path.value.toString())
+//                deleteItem(holder.textView.text.toString(), model.path.value.toString())
+//                Toast.makeText(ctx, "${holder.textView.text.toString()} removed from Starred", Toast.LENGTH_SHORT).show()
+//            }catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//        }
 
         holder.download.setOnClickListener{
             dbref = FirebaseStorage.getInstance().reference.child("${model.path.value.toString()}/${holder.textView.text}")
@@ -79,6 +92,16 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
 
         }
 
+    }
+
+    private fun deleteItem(name: String, path: String) {
+        try {
+            var item = roomViewModel.retrieveItem(name, path)
+            Log.d("item", item.toString())
+            roomViewModel.deleteItem(item)
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
 
     }
 
@@ -93,8 +116,6 @@ class StarredAdapter(private val model: AppViewModel, private val ctx: Context):
             }
         }
     }
-
-
 
 
 }

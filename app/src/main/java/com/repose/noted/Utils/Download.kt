@@ -5,10 +5,10 @@ import android.content.Context
 import android.net.Uri
 
 class Download {
+
     fun downloadFile(
         context: Context,
         fileName: String,
-//        fileExtension: String,
         destinationDirectory: String?,
         url: String?
     ): Long {
@@ -23,4 +23,6 @@ class Download {
         )
         return downloadmanager.enqueue(request)
     }
+
+
 }
