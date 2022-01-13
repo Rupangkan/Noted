@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +38,11 @@ class SemesterAdapter(private val model: AppViewModel, private val ctx: Context,
         val item = dataset[position]
         holder.textView.text = ctx.resources.getString(item.stringResourseId)
         holder.imageView.setImageResource(item.imageResourceId)
+//        holder.cardView.setOnClickListener{
+//            val animation: Animation =
+//                AnimationUtils.loadAnimation(ctx, R.anim.slide_in)
+//            holder.cardView.startAnimation(animation)
+//        }
         holder.cardView.setOnClickListener {
             val action = SemesterFragmentDirections.actionSemesterFragmentToPdfContainerFragment()
             with(model){

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<gridLayoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:rowDelay="15%"
-    android:columnDelay="15%"
-    android:direction="top_to_bottom"
-    android:directionPriority="row" >
+<!--<gridLayoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:rowDelay="15%"-->
+<!--    android:columnDelay="15%"-->
+<!--    android:direction="top_to_bottom"-->
+<!--    android:directionPriority="row" >-->
 
-</gridLayoutAnimation>
+<!--</gridLayoutAnimation>-->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/item_animation_fall_down"
+    android:animationOrder="normal"
+    android:delay="20%" />
