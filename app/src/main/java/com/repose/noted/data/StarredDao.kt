@@ -11,8 +11,8 @@ interface StarredDao {
     @Delete
     fun delete(item: Starred)
 
-    @Query("SELECT * from starred WHERE dbname = :name")
-    fun getItem(name: String): Starred
+    @Query("SELECT * from starred WHERE dbname = :name and path = :path")
+    fun getItem(name: String, path: String): Starred
 
 
     @Query("SELECT * from starred")

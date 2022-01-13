@@ -61,7 +61,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 
         holder.textView.text = item.stringResourseId
         val pdfName = holder.textView.text.toString()
-        val bool = retrieveItem(pdfName)
+        val bool = retrieveItem(pdfName, paths)
 
         if(bool)
             holder.star.setImageResource(R.drawable.ic_star_fill)
@@ -91,7 +91,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
             with(model){
                 setPath(paths)
             }
-            if(!bool) {
+            if(!retrieveItem(pdfName, paths)) {
                 addNewItem(paths, pdfName)
                 holder.star.setImageResource(R.drawable.ic_star_fill)
                 Toast.makeText(holder.card.context, "$pdfName added to Starred", Toast.LENGTH_SHORT).show()
@@ -146,7 +146,7 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 
     private fun deleteItem(name: String) {
         try {
-            var item = roomViewModel.retrieveItem(name)
+            var item = roomViewModel.retrieveItem(name, paths)
             Log.d("item", item.toString())
             roomViewModel.deleteItem(item)
         }catch (e: Exception){
@@ -155,32 +155,14 @@ class PdfContainerAdapter(private val roomViewModel: RoomViewModel, private val 
 
     }
 
-    private fun retrieveItem(name: String): Boolean {
+    private fun retrieveItem(name: String, path: String): Boolean {
         var item: Starred? = null
 
-        item = roomViewModel.retrieveItem(name)
+        item = roomViewModel.retrieveItem(name, path)
         if(item==null) return false
         return true
     }
 
-//    fun downloadFile(
-//        context: Context,
-//        fileName: String,
-//        fileExtension: String,
-//        destinationDirectory: String?,
-//        url: String?
-//    ): Long {
-//        val downloadmanager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-//        val uri: Uri = Uri.parse(url)
-//        val request = DownloadManager.Request(uri)
-//        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-//        request.setDestinationInExternalFilesDir(
-//            context,
-//            destinationDirectory,
-//            fileName + fileExtension
-//        )
-//        return downloadmanager.enqueue(request)
-//    }
 
     override fun getItemCount(): Int = dataset.size
 

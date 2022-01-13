@@ -21,8 +21,8 @@ class RoomViewModel(private val starredDao: StarredDao) : ViewModel() {
         }
     }
 
-    fun retrieveItem(name: String): Starred {
-        return starredDao.getItem(name)
+    fun retrieveItem(name: String, path: String): Starred {
+        return starredDao.getItem(name, path)
     }
 
     fun isEntryValid(path: String, pdfName: String): Boolean {
