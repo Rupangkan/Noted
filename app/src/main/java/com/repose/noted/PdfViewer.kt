@@ -142,6 +142,7 @@ class PdfViewer: AppCompatActivity() {
             .addOnFailureListener {
                 Log.d("Error", "Loading pdf failed")
                 progressBar.visibility = View.GONE
+                Toast.makeText(this, "Error loading page", Toast.LENGTH_SHORT).show()
             }
 
         URL = pdfRef.downloadUrl.toString()

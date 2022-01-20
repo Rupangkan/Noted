@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:fontFamily="sans-serif-light"
+        android:padding="8dp"
         android:text="@string/splash"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:padding="8dp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
 </RelativeLayout>
